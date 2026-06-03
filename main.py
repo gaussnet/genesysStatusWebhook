@@ -1,4 +1,6 @@
 from fastapi import FastAPI, Request
+import uvicorn
+import os
 
 app = FastAPI()
 
@@ -96,3 +98,8 @@ async def genesys_status_webhook(request: Request):
         # - mail
 
     return {"alerts_detected": len(alerts)}
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port)
+    
