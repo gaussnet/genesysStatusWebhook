@@ -28,4 +28,5 @@ async def genesys_status_webhook(request: Request):
     payload = await request.json()
     
     print("Received payload:", payload)
-    
+
+    return {"message": "Payload recibido correctamente"}
